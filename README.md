@@ -49,7 +49,7 @@ Calculating allele frequencies... done.
 --indep-pairwise (17 compute threads): 7942018/13722663 variants removed.  
 **Осталось 5780645 значимых SNP**  
 
-## 1.3 Gapit
+## 1.3 GWAS - Gapit
 **Активация среды, где есть gapit:**
 ```
 source ~/.bashrc
