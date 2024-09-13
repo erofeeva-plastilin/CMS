@@ -160,3 +160,6 @@ sys     1m54.512s
 **По файлу transfered_positions.tsv перенесла позиции со сборки 2.0 на 1.0, жирным шрифтом выделены позиции значимых SNP на 13 хромосоме (отфильтрованы в порядке возрастания)**  
 ![image](https://github.com/user-attachments/assets/7e9a9bfe-7c72-44dc-8eaa-e886d69306bf)
 
+**SNP из статьи https://www.mdpi.com/2073-4395/9/2/49#app1-agronomy-09-00049**
+![image](https://github.com/user-attachments/assets/4b070f39-17be-4565-9cc9-6281da9bb52b)
+
