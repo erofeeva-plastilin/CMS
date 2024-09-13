@@ -205,3 +205,34 @@ python3 pos.py
 Получаем отфильтрованный файл: https://github.com/erofeeva-plastilin/CMS/blob/main/output.txt  
 Сводная таблица: https://github.com/erofeeva-plastilin/CMS/blob/main/final_table.txt  
 Если обобщить, то у устойчивай линии 1/1, у неустойчивой линии - 0/0. Они очень четко разделились
+
+## 4. Предсказание наших маркеров
+Обновленный pos.py для фильтрации архивированных файлов (тут фильтрация по позициям сборки 2.0):
+
+```
+import gzip
+positions = {
+    153949714, 155465938, 155087415, 152602920, 152161520,
+    156160357, 156370666, 156384352, 156456877, 155847945,
+    159241056, 156940410, 153583253
+}
+
+with gzip.open("/mnt2/fastq2vcf_results/helianthus/2024-08-30_wgs_sunflower.vcf.gz", "rt", encoding="utf-8") as vcf_file, open("2024-08-30>
+    header_found = False
+    for line in vcf_file:
+        if line.startswith('#'):
+            if line.startswith("#CHROM"):
+                output_file.write(line)
+                header_found = True
+            continue
+        if header_found:
+            columns = line.split('\t')
+            position = int(columns[1])
+            if position in positions:
+                output_file.write(line)
+```
+Запускаем скрипт:
+```
+python3 pos.py
+```
+Получаем отфильтрованный файл:
