@@ -78,6 +78,18 @@ Rscript ./run_GAPIT.R pruned.vcf phenotype.CMS.tsv /mnt/users/erofeevan/Drafts/D
 ```
 /mnt/users/erofeevan/Drafts/Drafts/Help_CSM
 ```
+GAPIT.Association.Filter_GWAS_results.csv               GAPIT.Association.QQ.MLM.CMS.pdf
+GAPIT.Association.GWAS_Results.MLM.CMS.csv              GAPIT.Association.Significant_SNPs.MLM.CMS.pdf
+GAPIT.Association.GWAS_StdErr.MLM.CMS.csv               GAPIT.Association.Vairance_markers.MLM.CMS.csv
+GAPIT.Association.Manhattan_Chro.MLM.CMS.pdf            GAPIT.Genotype.Distance_R_Chro.pdf
+GAPIT.Association.Manhattan_Geno.MLM.CMS.pdf            GAPIT.Genotype.Distance.Rsquare.csv
+GAPIT.Association.Manhattans_Symphysic_Legend.pdf       GAPIT.Genotype.Frequency_MAF.csv
+GAPIT.Association.Manhattans_Symphysic.pdf              GAPIT.Genotype.Frequency.pdf
+GAPIT.Association.Manhattans_Symphysic_Traitsnames.csv  GAPIT.Genotype.Kin_Zhang.csv
+GAPIT.Association.Optimum.MLM.CMS.pdf                   GAPIT.Genotype.Kin_Zhang.pdf
+GAPIT.Association.Prediction_results.MLM.CMS.csv        GAPIT.Genotype.MAF_Heterozosity.pdf
+GAPIT.Association.PVE.MLM.CMS.csv                       GAPIT.Phenotype.View.CMS.pdf
+
 ## 2.Соотнесение координат
 ### 2.1 Фильтрация только 13 хромосомы
 **Активация среды, где есть vcftools:**
