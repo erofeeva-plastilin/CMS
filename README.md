@@ -10,24 +10,24 @@ conda activate GWAS-PIPELINE
 ```
 vcftools --vcf /mnt2/results/20231019_WGS_helianthus/vcfs/annotation.vcf --maf 0.01 --max-missing 0.95 --recode --out filt_vcf
 ```
-Лог:
-Parameters as interpreted:
-        --vcf /mnt2/results/20231019_WGS_helianthus/vcfs/annotation.vcf
-        --maf 0.01
-        --max-missing 0.95
-        --out filt_vcf
-        --recode
-After filtering, kept 82 out of 82 Individuals
-Outputting VCF file...
-After filtering, kept 13722663 out of a possible 52147915 Sites
-Run Time = 2162.00 seconds
+Лог:  
+Parameters as interpreted:  
+        --vcf /mnt2/results/20231019_WGS_helianthus/vcfs/annotation.vcf  
+        --maf 0.01  
+        --max-missing 0.95  
+        --out filt_vcf  
+        --recode  
+After filtering, kept 82 out of 82 Individuals  
+Outputting VCF file...  
+After filtering, kept 13722663 out of a possible 52147915 Sites  
+Run Time = 2162.00 seconds  
 ### 1.2 Фильтрация по LD блокам
 Активация среды, где есть plink:
 ```
 source ~/.bashrc
 conda activate GWAS-PIPELINE
 ```
-Фильтрация с размером окна 100кб, шагом 5 и r^2 0,5
+Фильтрация с размером окна 100кб, шагом 5 и r^2 0,5  
 Добавление уникального ID в VCF файл, чтобы избежать ошибок
 ```
 plink2 --vcf filt_vcf.recode.vcf --set-all-var-ids @:#\$r\$a --recode vcf --out updated_vcf --allow-extra-chr
@@ -36,18 +36,18 @@ plink2 --vcf updated_vcf.vcf  --extract ld.prune.in --allow-extra-chr --make-pge
 plink2 --pfile pruneddata --recode vcf --out pruned --allow-extra-chr
 ```
 Лог:
-515639 MiB RAM detected, ~328125 available; reserving 257819 MiB for main
-workspace.
-Using up to 40 threads (change this with --threads).
---vcf: 13722663 variants scanned.
---vcf: ld-temporary.pgen + ld-temporary.pvar.zst + ld-temporary.psam written.
-82 samples (0 females, 0 males, 82 ambiguous; 82 founders) loaded from
-ld-temporary.psam.
-13722663 variants loaded from ld-temporary.pvar.zst.
-Note: No phenotype data present.
-Calculating allele frequencies... done.
---indep-pairwise (17 compute threads): 7942018/13722663 variants removed.
-**Осталось 5780645 значимых SNP**
+515639 MiB RAM detected, ~328125 available; reserving 257819 MiB for main  
+workspace.  
+Using up to 40 threads (change this with --threads).  
+--vcf: 13722663 variants scanned.  
+--vcf: ld-temporary.pgen + ld-temporary.pvar.zst + ld-temporary.psam written.  
+82 samples (0 females, 0 males, 82 ambiguous; 82 founders) loaded from  
+ld-temporary.psam.  
+13722663 variants loaded from ld-temporary.pvar.zst.  
+Note: No phenotype data present.  
+Calculating allele frequencies... done.  
+--indep-pairwise (17 compute threads): 7942018/13722663 variants removed.  
+**Осталось 5780645 значимых SNP**  
 
 ## 1.3 Gapit
 Активация среды, где есть gapit:
@@ -86,16 +86,16 @@ conda activate GWAS-PIPELINE
 vcftools --vcf pruned.vcf --chr NC_035445.2 --recode --out 13_chr
 ```
 Лог:
-Parameters as interpreted:
-        --vcf pruned.vcf
-        --chr NC_035445.2
-        --out 13_chr
-        --recode
+Parameters as interpreted:  
+        --vcf pruned.vcf  
+        --chr NC_035445.2  
+        --out 13_chr  
+        --recode  
 
-After filtering, kept 82 out of 82 Individuals
-Outputting VCF file...
-After filtering, kept 344266 out of a possible 5780645 Sites
-Run Time = 24.00 seconds
+After filtering, kept 82 out of 82 Individuals  
+Outputting VCF file...  
+After filtering, kept 344266 out of a possible 5780645 Sites  
+Run Time = 24.00 seconds  
 
 ### 2.2 Snplift
 Активация среды, где есть snplift:
