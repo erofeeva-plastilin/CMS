@@ -68,8 +68,9 @@ Rscript ./run_GAPIT.R pruned.vcf phenotype.CMS.tsv /mnt/users/erofeevan/Drafts/D
 **Результаты gapit:**  
 
 ![image](https://github.com/user-attachments/assets/4cfb54de-8016-4e13-92d6-4359753dc511)
-**Выделены маркеры на 10 и 13 хромосомах, что соответствует статьям.
-Отфильтрованные значимые маркеры (желтым выделены маркеры на 13 хромосоме):**  
+
+**Выделены маркеры на 10 и 13 хромосомах, что соответствует статьям.**  
+**Отфильтрованные значимые маркеры (желтым выделены маркеры на 13 хромосоме):**    
 
 ![image](https://github.com/user-attachments/assets/e014bc80-c6b2-49c6-94e6-948e92d845fa)
 
