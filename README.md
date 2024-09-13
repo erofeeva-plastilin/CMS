@@ -1,22 +1,27 @@
 # Sunflover CMS
 ## 1.Получение маркеров
+### 1.1 Фильтрация VCF файла
+Активация среды, где есть vcftools:
 ```
 source ~/.bashrc
 conda activate GWAS-PIPELINE
 ```
-Фильтрация
+Фильтрация c параметрами maf 0.01, max-missing 0.95 
+```
 vcftools --vcf /mnt2/results/20231019_WGS_helianthus/vcfs/annotation.vcf --maf 0.01 --max-missing 0.95 --recode --out filt_vcf
+```
+Лог:
 Parameters as interpreted:
         --vcf /mnt2/results/20231019_WGS_helianthus/vcfs/annotation.vcf
         --maf 0.01
         --max-missing 0.95
         --out filt_vcf
         --recode
-
 After filtering, kept 82 out of 82 Individuals
 Outputting VCF file...
 After filtering, kept 13722663 out of a possible 52147915 Sites
 Run Time = 2162.00 seconds
+### 1.2 Фильтрация по LD блокам
 plink2 --vcf filt_vcf.recode.vcf --set-all-var-ids @:#\$r\$a --recode vcf --out updated_vcf --allow-extra-chr
 plink2 --vcf filt_vcf.recode.vcf --set-all-var-ids @:#\$r\$a --indep-pairwise 100 5 0.5 --out ld --allow-extra-chr
 plink2 --vcf updated_vcf.vcf  --extract ld.prune.in --allow-extra-chr --make-pgen --out pruneddata
