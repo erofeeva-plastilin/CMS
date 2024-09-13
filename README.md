@@ -219,7 +219,7 @@ positions = {
     159241056, 156940410, 153583253
 }
 
-with gzip.open("/mnt2/fastq2vcf_results/helianthus/2024-08-30_wgs_sunflower.vcf.gz", "rt", encoding="utf-8") as vcf_file, open("2024-08-30>
+with gzip.open("/mnt2/fastq2vcf_results/helianthus/2024-08-30_wgs_sunflower.vcf.gz", "rt", encoding="utf-8") as vcf_file, open("2024-08-30_wgs_sunflower_output.txt", "w") as output_file:
     header_found = False
     for line in vcf_file:
         if line.startswith('#'):
