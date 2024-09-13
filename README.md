@@ -202,5 +202,6 @@ with open("13_chr_ver1.0.recode.vcf", "r") as vcf_file, open("output.txt", "w") 
 ```
 python3 pos.py
 ```
-Получаем отфильтрованный файл: https://github.com/erofeeva-plastilin/CMS/blob/main/output.txt
-Сводная таблица:
+Получаем отфильтрованный файл: https://github.com/erofeeva-plastilin/CMS/blob/main/output.txt  
+Сводная таблица: https://github.com/erofeeva-plastilin/CMS/blob/main/final_table.txt  
+Если обобщить, то у устойчивай линии 1/1, у неустойчивой линии - 0/0. Они очень четко разделились
