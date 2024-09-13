@@ -170,3 +170,36 @@ sys     1m54.512s
 
 **Сравнение в табличном варианте, цветовые обозначения аналогичны**
 ![image](https://github.com/user-attachments/assets/e0e3b4d7-8f26-49a1-a0ef-d2fc3ed1eb2c)
+
+## 3. Финализация результатов
+
+* Статейных снипов нет в полученном vcf файле :(
+* Фильтрация VCF файла для получения только интересующих позиций
+Пишем скрипт для фильтрации pos.py:
+```
+positions = {
+    170763933, 171027789, 172614973, 173681208, 174122679, 
+    174663187, 174873488, 174887174, 174959698, 175303027, 
+    175476244, 178255803
+}
+
+with open("13_chr_ver1.0.recode.vcf", "r") as vcf_file, open("output.txt", "w") as output_file:
+    header_found = False  
+    
+    for line in vcf_file:
+        if line.startswith('#'):
+            if line.startswith("#CHROM"):
+                output_file.write(line)
+                header_found = True
+            continue  
+        if header_found:
+            columns = line.split('\t')
+            position = int(columns[1])
+            if position in positions:
+                output_file.write(line)
+```
+Запускаем скрипт:
+```
+python3 pos.py
+```
+Получаем отфильтрованный файл:
