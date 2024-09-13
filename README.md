@@ -235,4 +235,5 @@ with gzip.open("/mnt2/fastq2vcf_results/helianthus/2024-08-30_wgs_sunflower.vcf.
 ```
 python3 pos.py
 ```
-Получаем отфильтрованный файл: https://github.com/erofeeva-plastilin/CMS/blob/main/2024-08-30_wgs_sunflower_output.txt
+Получаем отфильтрованный файл: https://github.com/erofeeva-plastilin/CMS/blob/main/2024-08-30_wgs_sunflower_output.txt  
+Финальная таблица: https://docs.google.com/spreadsheets/d/1B0p3dcaxF79B5V6aW1dlWlSZO0Mbgq-D9E_rFblMnaY/edit?gid=403362067#gid=403362067  
