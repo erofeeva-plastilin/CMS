@@ -22,12 +22,43 @@ Outputting VCF file...
 After filtering, kept 13722663 out of a possible 52147915 Sites
 Run Time = 2162.00 seconds
 ### 1.2 Фильтрация по LD блокам
+Активация среды, где есть plink:
+```
+source ~/.bashrc
+conda activate GWAS-PIPELINE
+```
+Фильтрация с размером окна 100кб, шагом 5 и r^2 0,5
+Добавление уникального ID в VCF файл, чтобы избежать ошибок
+```
 plink2 --vcf filt_vcf.recode.vcf --set-all-var-ids @:#\$r\$a --recode vcf --out updated_vcf --allow-extra-chr
 plink2 --vcf filt_vcf.recode.vcf --set-all-var-ids @:#\$r\$a --indep-pairwise 100 5 0.5 --out ld --allow-extra-chr
 plink2 --vcf updated_vcf.vcf  --extract ld.prune.in --allow-extra-chr --make-pgen --out pruneddata
 plink2 --pfile pruneddata --recode vcf --out pruned --allow-extra-chr
+```
+Лог:
+515639 MiB RAM detected, ~328125 available; reserving 257819 MiB for main
+workspace.
+Using up to 40 threads (change this with --threads).
+--vcf: 13722663 variants scanned.
+--vcf: ld-temporary.pgen + ld-temporary.pvar.zst + ld-temporary.psam written.
+82 samples (0 females, 0 males, 82 ambiguous; 82 founders) loaded from
+ld-temporary.psam.
+13722663 variants loaded from ld-temporary.pvar.zst.
+Note: No phenotype data present.
+Calculating allele frequencies... done.
+--indep-pairwise (17 compute threads): 7942018/13722663 variants removed.
+**Осталось 5780645 значимых SNP**
 
+## Gapit
+Активация среды, где есть gapit:
+```
+source ~/.bashrc
+conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
+```
+Запуск gapit 
+```
 Rscript ./run_GAPIT.R pruned.vcf phenotype.CMS.tsv /mnt/users/erofeevan/Drafts/Drafts
+```
 
 scp -P 48226 erofeevan@188.170.2.5:/mnt/users/erofeevan/Drafts/Drafts/Help_CMS/* /home
 
