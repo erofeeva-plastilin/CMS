@@ -156,3 +156,6 @@ End: 20240913_103710
 real    13m31.426s   
 user    11m13.651s  
 sys     1m54.512s  
+
+**По файлу transfered_positions.tsv перенесла позиции со сборки 2.0 на 1.0, жирным шрифтом выделены позиции значимых SNP на 13 хромосоме**  
+![image](https://github.com/user-attachments/assets/bc5f194b-b875-458d-afc9-05ec8937af5e)
