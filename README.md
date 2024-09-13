@@ -59,6 +59,7 @@ conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
 ```
 Rscript ./run_GAPIT.R pruned.vcf phenotype.CMS.tsv /mnt/users/erofeevan/Drafts/Drafts
 ```
+![image](https://github.com/user-attachments/assets/4cfb54de-8016-4e13-92d6-4359753dc511)
 
 scp -P 48226 erofeevan@188.170.2.5:/mnt/users/erofeevan/Drafts/Drafts/Help_CMS/* /home
 
