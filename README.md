@@ -202,4 +202,5 @@ with open("13_chr_ver1.0.recode.vcf", "r") as vcf_file, open("output.txt", "w") 
 ```
 python3 pos.py
 ```
-Получаем отфильтрованный файл:
+Получаем отфильтрованный файл: https://github.com/erofeeva-plastilin/CMS/blob/main/output.txt
+Сводная таблица:
