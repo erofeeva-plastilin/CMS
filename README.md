@@ -67,4 +67,11 @@ Rscript ./run_GAPIT.R pruned.vcf phenotype.Mildew.tsv /mnt/users/erofeevan/Draft
 ```
 **Результаты gapit:**  
 
-
+# Sunflover Rust and Mildew
+VCF файл взят тут: https://www.sunflowergenome.org/pangenome-data/  
+В нем 493 образца, фильтрация, чтобы оставить только культивируемые (PPN001-PPN289, кроме PPN042, 046, 083, 085, 136, 172, 285):
+```
+ bcftools view -S line.txt HelianthusVariants.vcf.gz -o cultivar.vcf.gz -O z
+```
+## Rust
+Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323
