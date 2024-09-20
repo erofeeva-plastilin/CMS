@@ -66,6 +66,8 @@ conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
 Rscript ./run_GAPIT.R pruned.vcf phenotype.Mildew.tsv /mnt/users/erofeevan/Drafts/Drafts/Help_Mildew
 ```
 **Результаты gapit:**  
+![image](https://github.com/user-attachments/assets/d1878c79-0f50-435a-a9d9-816f23379361)
+
 
 # Sunflover Rust and Mildew
 VCF файл взят тут: https://www.sunflowergenome.org/pangenome-data/  
