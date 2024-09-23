@@ -144,3 +144,13 @@ VCF файл получен из статьи 'Sunflower pan-genome analysis sho
 Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt    
 Фильтрация vcf файла:   
 В файле 5830734 snp, он уже отфильтрован
+# GWAS
+**Активация среды gapit:**
+```
+source ~/.bashrc
+conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
+```
+**Запуск gapit**
+```
+Rscript ./run_GAPIT.R /mnt/users/erofeevan/Mildew/cultivar.vcf /mnt/users/erofeevan/Mildew/phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Help_Rust
+```
