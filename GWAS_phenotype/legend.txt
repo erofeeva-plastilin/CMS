@@ -1,0 +1,14 @@
+Mildew
+S — Susceptible (Восприимчивый) - 1
+R — Resistant (Устойчивый) - 2
+R(R2) — Resistant (R2): уровень устойчивости - 2
+
+
+Rust
+Обозначение	Расшифровка	Шифр
+R 	Resistant (устойчивый)	1
+MR	Moderately Resistant (умеренно устойчивый)	2
+MS 	Moderately Susceptible (умеренно восприимчивый)	3
+S 	Susceptible (восприимчивый)	4
+Seg 	Segregating (сегрегирующий)	5
+R-MR		6
