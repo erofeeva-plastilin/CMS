@@ -75,5 +75,20 @@ VCF файл взят тут: https://www.sunflowergenome.org/pangenome-data/
 ```
  bcftools view -S line.txt HelianthusVariants.vcf.gz -o cultivar.vcf.gz -O z
 ```
+## Mildew
+Индексация  
+```
+bcftools index cultivar.vcf.gz
+```
+Фильтрация только нужных snp  
+```
+bcftools view -R snp_pos.txt cultivar.vcf.gz -o filtered_cultivar.vcf
+```
+Подсчет частот аллелей  
+```
+source ~/.bashrc
+conda activate GWAS-PIPELINE
+vcftools --vcf filtered_cultivar.vcf --freq --out allele_frequencies
+```
 ## Rust
 Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323
