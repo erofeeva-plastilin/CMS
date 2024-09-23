@@ -65,6 +65,7 @@ conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
 ```
 Rscript ./run_GAPIT.R pruned.vcf phenotype.Mildew.tsv /mnt/users/erofeevan/Drafts/Drafts/Help_Mildew
 ```
+Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Mildew.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt
 **Результаты gapit:**  
 ![image](https://github.com/user-attachments/assets/d1878c79-0f50-435a-a9d9-816f23379361)
 
@@ -136,4 +137,6 @@ user    0m25.978s
 sys     0m39.056s
 ```
 ## Rust
-Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323
+Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323   
+Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt
+Фильтрация vcf файла: в файле 5830734 snp, он уже отфильтрован
