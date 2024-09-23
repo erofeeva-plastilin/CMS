@@ -139,4 +139,5 @@ sys     0m39.056s
 ## Rust
 Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323   
 Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt
-Фильтрация vcf файла: в файле 5830734 snp, он уже отфильтрован
+Фильтрация vcf файла:   
+В файле 5830734 snp, он уже отфильтрован
