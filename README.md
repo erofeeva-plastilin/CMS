@@ -76,7 +76,7 @@ VCF файл взят тут: https://www.sunflowergenome.org/pangenome-data/
 ```
  bcftools view -S line.txt HelianthusVariants.vcf.gz -o cultivar.vcf.gz -O z
 ```
-## Mildew
+## Mildew: Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance
 ### Индексация  
 ```
 bcftools index cultivar.vcf.gz
@@ -144,7 +144,7 @@ VCF файл получен из статьи 'Sunflower pan-genome analysis sho
 Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt    
 Фильтрация vcf файла:   
 В файле 5830734 snp, он уже отфильтрован
-# GWAS
+### GWAS
 **Активация среды gapit:**
 ```
 source ~/.bashrc
