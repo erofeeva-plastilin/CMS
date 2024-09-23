@@ -70,18 +70,19 @@ Rscript ./run_GAPIT.R pruned.vcf phenotype.Mildew.tsv /mnt/users/erofeevan/Draft
 ![image](https://github.com/user-attachments/assets/d1878c79-0f50-435a-a9d9-816f23379361)
 
 
-# Sunflover Rust and Mildew
+# Sunflover Rust and Mildew: Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance + USDA Sunflower Inbred Lines
 VCF файл взят тут: https://www.sunflowergenome.org/pangenome-data/  
 В нем 493 образца, фильтрация, чтобы оставить только культивируемые (PPN001-PPN289, кроме PPN042, 046, 083, 085, 136, 172, 285):
 ```
  bcftools view -S line.txt HelianthusVariants.vcf.gz -o cultivar.vcf.gz -O z
 ```
 ## Mildew
-Индексация  
+### Индексация  
 ```
 bcftools index cultivar.vcf.gz
 ```
-Фильтрация только нужных snp. Нужные snp взяты в таблице 9: "Table S9: Summary table of GWAS results for downy mildew resistance in the SAM
+### Фильтрация только нужных snp. 
+Нужные snp взяты в таблице 9: "Table S9: Summary table of GWAS results for downy mildew resistance in the SAM
 population (n = 239 biologically independent samples) based on 675,291 SNP dataset. For
 each SNP, attribution to QTL next to the SNP name, its chromosome and position, the effect
 size of the major allele (beta) and its standard error (SE), the p-value and significance
@@ -91,13 +92,13 @@ coordinates on the HA412-HO reference genome are provided.":  https://static-con
 ```
 bcftools view -R snp_pos.txt cultivar.vcf.gz -o filtered_cultivar.vcf
 ```
-Подсчет частот аллелей  
+### Подсчет частот аллелей  
 ```
 source ~/.bashrc
 conda activate GWAS-PIPELINE
 vcftools --vcf filtered_cultivar.vcf --freq --out allele_frequencies
 ```
-Перенос на сборку HanXRQr2.0
+### Перенос на сборку HanXRQr2.0 значимых SNP
 ```
 # Скачивание исходного генома:
 wget https://www.heliagene.org/HA412.v1.1.bronze.20141015/static/sequences_files/HA412.v1.1.bronze.20141015.fasta.gz
@@ -136,7 +137,9 @@ real    1m28.226s
 user    0m25.978s
 sys     0m39.056s
 ```
-## Rust
+Результаты: https://docs.google.com/spreadsheets/d/11D7-WJqfNM710nf4aFO29UhfeMguLUZKwjyEQFpdTlo/edit?gid=1270894803#gid=1270894803
+## Rust: Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance + USDA Sunflower Inbred Lines
+VCF файл получен из статьи 'Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance': https://www.sunflowergenome.org/pangenome-data/, в нем оставлены только культивируемые линии: ```/mnt/users/erofeevan/Mildew/cultivar.vcf.gz```
 Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323   
 Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt
 Фильтрация vcf файла:   
