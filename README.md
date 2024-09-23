@@ -139,8 +139,8 @@ sys     0m39.056s
 ```
 Результаты: https://docs.google.com/spreadsheets/d/11D7-WJqfNM710nf4aFO29UhfeMguLUZKwjyEQFpdTlo/edit?gid=1270894803#gid=1270894803
 ## Rust: Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance + USDA Sunflower Inbred Lines
-VCF файл получен из статьи 'Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance': https://www.sunflowergenome.org/pangenome-data/, в нем оставлены только культивируемые линии: ```/mnt/users/erofeevan/Mildew/cultivar.vcf.gz```
-Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323   
-Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt
+VCF файл получен из статьи 'Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance': https://www.sunflowergenome.org/pangenome-data/, в нем оставлены только культивируемые линии: ```/mnt/users/erofeevan/Mildew/cultivar.vcf.gz```   
+Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323     
+Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt    
 Фильтрация vcf файла:   
 В файле 5830734 snp, он уже отфильтрован
