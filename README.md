@@ -139,11 +139,60 @@ sys     0m39.056s
 ```
 Результаты: https://docs.google.com/spreadsheets/d/11D7-WJqfNM710nf4aFO29UhfeMguLUZKwjyEQFpdTlo/edit?gid=1270894803#gid=1270894803
 ## Rust: Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance + USDA Sunflower Inbred Lines
-VCF файл получен из статьи 'Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance': https://www.sunflowergenome.org/pangenome-data/, в нем оставлены только культивируемые линии: ```/mnt/users/erofeevan/Mildew/cultivar.vcf.gz```   
+VCF файл получен из статьи 'Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance': https://www.sunflowergenome.org/pangenome-data/, в нем оставлены только культивируемые линии 
 Фенотипы собраны тут:https://docs.google.com/spreadsheets/d/1zaGA4b8CNhZcoSkttB3r_oZKMer3AJ2GTdywpt1HsNc/edit?gid=18979323#gid=18979323     
 Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Rust.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt    
 Фильтрация vcf файла:   
-В файле 5830734 snp, он уже отфильтрован
+В файле 5830734 snp, дополнительно отфильтруем:
+**Фильтрация c параметрами maf 0.01, max-missing 0.95**
+```
+source ~/.bashrc
+conda activate GWAS-PIPELINE
+vcftools --vcf /mnt/users/erofeevan/Drafts/Drafts/cultivar.vcf --maf 0.01 --max-missing 0.95 --recode --out cultivar_filt_maf
+```
+Лог
+```
+Parameters as interpreted:
+        --vcf /mnt/users/erofeevan/Drafts/Drafts/cultivar.vcf
+        --maf 0.01
+        --max-missing 0.95
+        --out cultivar_filt_maf
+        --recode
+
+After filtering, kept 282 out of 282 Individuals
+Outputting VCF file...
+After filtering, kept 1238001 out of a possible 5830734 Sites
+Run Time = 1501.00 seconds
+```
+**Добавление уникального ID в VCF файл, чтобы избежать ошибок, и запись генотипа в упрощенном формате**
+```
+plink2 --vcf cultivar_filt_maf.recode.vcf --set-all-var-ids @:#\$r\$a --recode vcf --out cultivar_filt_maf_with_id --allow-extra-chr --vcf-half-call m
+```
+Лог:
+```
+Options in effect:
+  --allow-extra-chr
+  --export vcf
+  --out cultivar_filt_maf_with_id
+  --set-all-var-ids @:#$r$a
+  --vcf cultivar_filt_maf.recode.vcf
+  --vcf-half-call m
+
+Start time: Tue Sep 24 13:05:13 2024
+515639 MiB RAM detected, ~250685 available; reserving 250621 MiB for main
+workspace.
+Using up to 40 threads (change this with --threads).
+--vcf: 1238001 variants scanned.
+--vcf: cultivar_filt_maf_with_id-temporary.pgen +
+cultivar_filt_maf_with_id-temporary.pvar.zst +
+cultivar_filt_maf_with_id-temporary.psam written.
+282 samples (0 females, 0 males, 282 ambiguous; 282 founders) loaded from
+cultivar_filt_maf_with_id-temporary.psam.
+1238001 variants loaded from cultivar_filt_maf_with_id-temporary.pvar.zst.
+Note: No phenotype data present.
+--export vcf to cultivar_filt_maf_with_id.vcf ... done.
+End time: Tue Sep 24 13:05:24 2024
+```
 ### GWAS
 **Активация среды gapit:**
 ```
@@ -152,5 +201,5 @@ conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
 ```
 **Запуск gapit**
 ```
-Rscript ./run_GAPIT.R /mnt/users/erofeevan/Mildew/cultivar.vcf /mnt/users/erofeevan/Mildew/phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Help_Rust
+Rscript ./run_GAPIT.R cultivar_filt_maf_with_id.vcf phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Help_Rust
 ```
