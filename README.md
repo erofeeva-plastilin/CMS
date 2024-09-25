@@ -203,3 +203,14 @@ conda activate /mnt/users/grigorieval/miniconda3/envs/gapit
 ```
 Rscript ./run_GAPIT.R cultivar_filt_maf_with_id.vcf phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Help_Rust
 ```
+Вышло 0 значимых результатов. Никаких SNP нет.  
+![image](https://github.com/user-attachments/assets/b7689c76-65d6-4b76-b631-69192d3bd583)
+
+Проводила GWAS 5 раз:   
+* На отфильтрованном cultivar_filt_maf_with_id.vcf с 4 разными фенотипами (R, MR, MS, S)
+* На отфильтрованном cultivar_filt_maf_with_id.vcf с 3 разными фенотипами (R, MR, MS, S) - MS включен в состав S
+* На отфильтрованном cultivar_filt_maf_with_id.vcf с 2 разными фенотипами (R, MR, MS, S) - MS включен в состав S, MR включен в состав R
+* На отфильтрованном cultivar_filt_maf_with_id.vcf с 2 разными фенотипами (R, S) - MS и MR удалены
+* На нефильтрованном cultivar.vcf с 2 разными фенотипами (R, S) - MS и MR удалены
+Возможные причины: R 51 линия, S 21 линия, неравновестное соотношение; vcf файл плохого качества (исходный содержал 5 млн SNP, но было непонятно, какую обработку он прошел, так как после фильтрации по MAF и maf 0.01 --max-missing 0.95 осталось 1 млн SNP; в исходном файле были проблемы с записью формата, которые были исправлены)
+
