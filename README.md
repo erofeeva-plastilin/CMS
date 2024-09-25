@@ -237,7 +237,6 @@ GWAS:
 Rscript ./run_GAPIT.R cultivar_HanXRQr2.0-SUNRISE.vcf phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Rust # с 2 разными фенотипами (R, S) - MS и MR удалены
 ```
 Вышло 0 значимых результатов. Никаких SNP нет.  
-![image](https://github.com/user-attachments/assets/d2c247ea-bfb4-41c4-a75f-58c0a33c6ff3)
 
 Из статей:
 * На сегодняшний день у подсолнечника обнаружено в общей сложности 17 генов устойчивости к ржавчине, R1–R5, R10–R12, R13a, R13b, R14–R18, Pu6 и Radv, у 15 из них были обнаружены нанесен на карту в различных областях генома подсолнечника: хромосома 2 (R5); хромосома 8 (R1 и R15); хромосома 11 (R12 и R14); хромосома 13 (R4, R11, R13a, R13b, R16–R18, Pu6 и Radv); и хромосома 14 ( R2): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9455867/
