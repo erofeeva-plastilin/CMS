@@ -236,6 +236,9 @@ GWAS:
 ```
 Rscript ./run_GAPIT.R cultivar_HanXRQr2.0-SUNRISE.vcf phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Rust # с 2 разными фенотипами (R, S) - MS и MR удалены
 ```
+Вышло 0 значимых результатов. Никаких SNP нет.  
+![image](https://github.com/user-attachments/assets/d2c247ea-bfb4-41c4-a75f-58c0a33c6ff3)
+
 Из статей:
 * На сегодняшний день у подсолнечника обнаружено в общей сложности 17 генов устойчивости к ржавчине, R1–R5, R10–R12, R13a, R13b, R14–R18, Pu6 и Radv, у 15 из них были обнаружены нанесен на карту в различных областях генома подсолнечника: хромосома 2 (R5); хромосома 8 (R1 и R15); хромосома 11 (R12 и R14); хромосома 13 (R4, R11, R13a, R13b, R16–R18, Pu6 и Radv); и хромосома 14 ( R2): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9455867/
 * Устойчивость к ржавчине связана также с генами на 13 хромосоме, которые ассоциированы с большим кластером генов ```The rust resistance genes, R13a and R16, were previously mapped to a 3.4 Mb region at the lower end of sunflower chromosome 13```: https://pubmed.ncbi.nlm.nih.gov/36076914/, ```Previous mapping placed Rf5 at an interval of 5.8 cM on sunflower chromosome 13, distal to a rust resistance gene R11 at a 1.6 cM genetic distance in an SSR map.```:https://pubmed.ncbi.nlm.nih.gov/33437028/, ```Resistance to downy mildew (DM) disease in sunflower is mediated by Pl genes which are known to be effective against the causal fungus, Plasmopara halstedii. Two DM resistance genes, Pl Arg and Pl 8 , are highly effective against P. halstedii races in the USA, and have been previously mapped to the sunflower linkage groups (LGs) 1 and 13, respectively, using simple sequence repeat (SSR) markers.```: https://pubmed.ncbi.nlm.nih.gov/28160079/
