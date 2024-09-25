@@ -213,8 +213,30 @@ Rscript ./run_GAPIT.R cultivar_filt_maf_with_id.vcf phenotype.Rust.tsv /mnt/user
 * На отфильтрованном cultivar_filt_maf_with_id.vcf с 2 разными фенотипами (R, S) - MS и MR удалены
 * На нефильтрованном cultivar.vcf с 2 разными фенотипами (R, S) - MS и MR удалены   
 Возможные причины: R 51 линия, S 21 линия, неравновестное соотношение; vcf файл плохого качества (исходный содержал 5 млн SNP, но было непонятно, какую обработку он прошел, так как после фильтрации по MAF и maf 0.01 --max-missing 0.95 осталось 1 млн SNP; в исходном файле были проблемы с записью формата, которые были исправлены)
-Попробовала перенести отфильтрованный vcf файл ```cultivar_filt_maf.recode.vcf``` на со сборки HA412.v1.1 на сборку HanXRQr2.0 и поставить GWAS на нем (чтобы исправить возможные проблемы в конфигурации файла)
+Попробовала перенести отфильтрованный vcf файл ```cultivar_filt_maf.recode.vcf``` со сборки HA412.v1.1 на сборку HanXRQr2.0 и поставить GWAS на нем (чтобы исправить возможные проблемы в конфигурации файла)   
+Лог:  
+```
+1238001 Positions
+1236278 Scores
+1184931 Transferable
+
+SNPLift: Percentage of transferred SNPs:
+
+95.7132%
+
+SNPLift: Run completed
+
+End: 20240925_103255
+
+real    37m44.479s
+user    34m44.782s
+sys     3m30.352s
+```
+GWAS: 
+```
+Rscript ./run_GAPIT.R cultivar_HanXRQr2.0-SUNRISE.vcf phenotype.Rust.tsv /mnt/users/erofeevan/Drafts/Drafts/Rust # с 2 разными фенотипами (R, S) - MS и MR удалены
+```
 Из статей:
 * На сегодняшний день у подсолнечника обнаружено в общей сложности 17 генов устойчивости к ржавчине, R1–R5, R10–R12, R13a, R13b, R14–R18, Pu6 и Radv, у 15 из них были обнаружены нанесен на карту в различных областях генома подсолнечника: хромосома 2 (R5); хромосома 8 (R1 и R15); хромосома 11 (R12 и R14); хромосома 13 (R4, R11, R13a, R13b, R16–R18, Pu6 и Radv); и хромосома 14 ( R2): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9455867/
 * Устойчивость к ржавчине связана также с генами на 13 хромосоме, которые ассоциированы с большим кластером генов ```The rust resistance genes, R13a and R16, were previously mapped to a 3.4 Mb region at the lower end of sunflower chromosome 13```: https://pubmed.ncbi.nlm.nih.gov/36076914/, ```Previous mapping placed Rf5 at an interval of 5.8 cM on sunflower chromosome 13, distal to a rust resistance gene R11 at a 1.6 cM genetic distance in an SSR map.```:https://pubmed.ncbi.nlm.nih.gov/33437028/
-* В этих статьях: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4094432/#pone.0098628.s004, https://pubmed.ncbi.nlm.nih.gov/36076914/ и https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7804242/ выявили маркеры, но нет vcf, чтобы их восстановить
+* В этих статьях: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4094432/#pone.0098628.s004, https://pubmed.ncbi.nlm.nih.gov/36076914/ и https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7804242/ выявили маркеры, но нет vcf, чтобы их восстановить, но есть позиции на разных сборках. Можно собрать генотипы интересующих линий, сделать свой vcf и попробовать проанализировать.
