@@ -68,8 +68,13 @@ Rscript ./run_GAPIT.R pruned.vcf phenotype.Mildew.tsv /mnt/users/erofeevan/Draft
 Файл с фенотипами: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/Mildew.tsv, файл с легендой: https://github.com/erofeeva-plastilin/CMS/blob/Mildew/GWAS_phenotype/legend.txt
 **Результаты gapit:**  
 ![image](https://github.com/user-attachments/assets/d1878c79-0f50-435a-a9d9-816f23379361)
-
-
+Подсчет частот аллелей
+```
+source ~/.bashrc
+conda activate GWAS-PIPELINE
+vcftools --vcf pruned.vcf --positions milpos.txt --recode --out filtered_mildew
+vcftools --vcf filtered_mildew.recode.vcf --freq --out allele_frequencies_our_mildew
+```
 # Sunflover Rust and Mildew: Sunflower pan-genome analysis shows that hybridization altered gene content and disease resistance + USDA Sunflower Inbred Lines
 VCF файл взят тут: https://www.sunflowergenome.org/pangenome-data/  
 В нем 493 образца, фильтрация, чтобы оставить только культивируемые (PPN001-PPN289, кроме PPN042, 046, 083, 085, 136, 172, 285):
