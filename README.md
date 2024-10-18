@@ -49,10 +49,15 @@ with open('yield.vcf', 'r') as vcf_in, open('yield1.vcf', 'w') as vcf_out:
             # Записываем строку в выходной файл
             vcf_out.write('\t'.join(columns) + '\n')
 ```
-## 4. Билд базы для snpEff
+## 4. Билд базы для snpEff и аннотация
 
 1. В папке /mnt/tools/snpEff/data создать папку для референса. Например soy_old. Туда нужно положить четыре файла -- геномную фасту (sequences.fa), белковую фасту (protein.fa), кодирующие сиквенсы (cds.fa) и аннотацию (genes.gff). Названия нужны именно такие
 2. Дальше в файл /usr/snpEff.config нужно вписать <название созданной папки>.genome : <название созданной папки> (где-то в районе 137 строчки файла будет раздел с нашими геномами)
 3. Запустить snpeff build <название созданной папки>. Если будет ругаться можно добавить опции -noCheckCds -noCheckProtein. Через sudo
 4. Аннотация ```snpeff -v <название созданной папки> <путь к нужному vcf> > <название нового vcf>```
 
+## 5. Скачивание SRR файлов
+```
+/mnt/tools/sratoolkit.3.0.6-ubuntu64/bin/prefetch SRR15130914 --max-size 50G
+/mnt/tools/sratoolkit.3.0.6-ubuntu64/bin/fastq-dump SRR15130914
+```
