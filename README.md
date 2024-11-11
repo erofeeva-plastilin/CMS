@@ -4,6 +4,11 @@
 tabix -p vcf {input}.vcf.gz
 bcftools view -R {pos}.txt {input}.vcf.gz -o {output}.vcf
 ```
+**Посмотреть сколько SNP в файле**
+```
+bcftools view -v snps Pea_short.vcf | grep -vc "^#"
+```
+
 ## 2. Подсчет частот аллелей
 ```
 vcftools --vcf {input}.vcf --freq --out allele_frequencies
