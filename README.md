@@ -8,7 +8,10 @@ bcftools view -R {pos}.txt {input}.vcf.gz -o {output}.vcf
 ```
 bcftools view -v snps Pea_short.vcf | grep -vc "^#"
 ```
-
+**Посмотреть сколько образцов в файле**
+```
+bcftools query -l public_to_Oryza_indica.vcf | wc -l
+```
 ## 2. Подсчет частот аллелей
 ```
 vcftools --vcf {input}.vcf --freq --out allele_frequencies
