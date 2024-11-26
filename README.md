@@ -75,31 +75,29 @@ with open('yield.vcf', 'r') as vcf_in, open('yield1.vcf', 'w') as vcf_out:
 ```
 ## 6. Создание png с распределением частот аллелей
 ```
-import pandas as pd
 import matplotlib.pyplot as plt
-file_path = "our_sunflower.tsv"
-columns = ["CHROM", "POS", "N_ALLELES", "N_CHR", "ALLELE_FREQ"]
-allele_freq = pd.read_csv(file_path, sep="\t", names=columns, skiprows=1, on_bad_lines="skip")
-
-freqs = []
-for row in allele_freq["ALLELE_FREQ"]:
-    if isinstance(row, str):  
-        #row = row.strip() 
-        for allele in row.split(" "):  
-            try:
-                freqs.append(float(allele.split(":")[1]))  
-            except (IndexError, ValueError):
-                continue
-
-plt.figure(figsize=(8, 6))
-plt.hist(freqs, bins=50, alpha=0.7, color="blue", edgecolor="black")
-plt.title("Distribution of allele frequencies in our_sunflower VCF")
-plt.xlabel("Allele frequency")
-plt.ylabel("Number")
-plt.grid(axis="y", linestyle="--", alpha=0.7)
-output_file = "our_sunflower.png"
-plt.savefig(output_file, dpi=300, bbox_inches="tight")
-#plt.show()
+import pandas as pd
+file_path = '22112024final.tsv'  
+columns = ["CHROM", "POS", "N_ALLELES", "N_CHR", "REF_FREQ", "ALT_FREQ"]
+data = pd.read_csv(file_path, sep='\t', names=columns, skiprows=1)
+data = data.drop(columns=["N_ALLELES", "N_CHR"])
+data[["REF", "FREQ_REF"]] = data["REF_FREQ"].str.split(":", expand=True)
+data[["ALT", "FREQ_ALT"]] = data["ALT_FREQ"].str.split(":", expand=True)
+data["FREQ_REF"] = pd.to_numeric(data["FREQ_REF"])
+data["FREQ_ALT"] = pd.to_numeric(data["FREQ_ALT"])
+data = data.drop(columns=["REF_FREQ", "ALT_FREQ"])
+print(data)
+plt.figure(figsize=(10, 6))
+plt.hist(data["FREQ_REF"], bins=500, alpha=0.5, label='FREQ_REF')
+plt.hist(data["FREQ_ALT"], bins=500, alpha=0.5, label='FREQ_ALT')
+plt.xlabel('Frequency')
+plt.ylabel('Count')
+plt.title('Histogram of FREQ_REF and FREQ_ALT')
+plt.legend()
+plt.grid(axis='y')
+output_image_path = 'histogram_freq_ref_alt.png'
+plt.savefig(output_image_path, dpi=300)
+plt.show()
 ```
 ## 7. Создание vcf с рандомными образцами в определенном количестве
 ```
