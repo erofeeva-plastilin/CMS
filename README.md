@@ -126,3 +126,20 @@ for size in sample_sizes:
     print(f"VCF with {size} samples saved as {output_vcf}")
 subprocess.run("rm selected_samples_*.txt", shell=True)
 ```
+## 8. Добавить в гит большой файл
+Скачиваем/обновляем локально наш репозиторий.
+```
+git lfs install # Инициализация Git LFS
+git lfs track "CoordTransfer/Chain_files/Pisum_sativum_v1a.fa.to.GCF_024323335.1_CAAS_Psat_ZW6_1.0_genomic.unmasked.fna.over.chain" # Добавляем файл отслеживания
+cd /mnt/users/erofeevan/Converting_Genome_Coordinates_pipeline/CoordTransfer # Перемещаемся в корневую директорию репозитория и все оставшиеся команды там делаем!
+git add CoordTransfer/Chain_files/Pisum_sativum_v1a.fa.to.GCF_024323335.1_CAAS_Psat_ZW6_1.0_genomic.unmasked.fna.over.chain # Добавляем файл
+git status # Проверяем статус
+git commit -m "Add large chain file for Pisum sativum genome" # Делаем коммит
+git push origin main # Отправляем изменения
+```
+
+
+
+
+
+
