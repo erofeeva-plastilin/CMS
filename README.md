@@ -18,6 +18,7 @@ bcftools query -l input.vcf
 ```
 ## 2. Подсчет частот аллелей
 ```
+conda activate GWAS-PIPELINE
 vcftools --vcf {input}.vcf --freq --out allele_frequencies
 ```
 ## 3. Переименовывание хромосом
