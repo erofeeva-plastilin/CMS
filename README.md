@@ -72,7 +72,7 @@ with open('yield.vcf', 'r') as vcf_in, open('yield1.vcf', 'w') as vcf_out:
 ## 5. Скачивание SRR файлов
 ```
 /mnt/tools/sratoolkit.3.0.6-ubuntu64/bin/prefetch SRR15130914 --max-size 50G
-/mnt/tools/sratoolkit.3.0.6-ubuntu64/bin/fastq-dump SRR15130914
+/mnt/tools/sratoolkit.3.0.6-ubuntu64/bin/fastq-dump SRR15130914 (--split-files)
 ```
 ## 6. Создание png с распределением частот аллелей
 ```
