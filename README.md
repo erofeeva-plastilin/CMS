@@ -1,8 +1,12 @@
 # Важные команды
-## 1. Фильтрация VCF по хромосомам и позициям
+**Фильтрация VCF по хромосомам и позициям**
 ```
 tabix -p vcf {input}.vcf.gz
 bcftools view -R {pos}.txt {input}.vcf.gz -o {output}.vcf
+```
+**Фильтрация по образцам**
+```
+bcftools view -S samples_parents.txt 69_parents_180_hybrids.vcf -o 69_parents.vcf
 ```
 **Посмотреть сколько SNP в файле**
 ```
