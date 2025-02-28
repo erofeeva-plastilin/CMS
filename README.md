@@ -7,6 +7,7 @@ bcftools view -R {pos}.txt {input}.vcf.gz -o {output}.vcf
 **Фильтрация по образцам**
 ```
 bcftools view -S samples_parents.txt 69_parents_180_hybrids.vcf -o 69_parents.vcf
+sed -i 's/|/\//g' 69_parents.vcf
 ```
 **Посмотреть сколько SNP в файле**
 ```
