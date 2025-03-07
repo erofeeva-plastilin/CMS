@@ -9,6 +9,10 @@ bcftools view -R {pos}.txt {input}.vcf.gz -o {output}.vcf
 bcftools view -S samples_parents.txt 69_parents_180_hybrids.vcf -o 69_parents.vcf
 sed -i 's/|/\//g' 69_parents.vcf
 ```
+**Почистить формат**
+```
+bcftools annotate -x FORMAT/PL,FORMAT/DP -O v -o GBS_all_soybean_1.vcf GBS_all_soybean.vcf
+```
 **Посмотреть сколько SNP в файле**
 ```
 bcftools view -v snps Pea_short.vcf | grep -vc "^#"
