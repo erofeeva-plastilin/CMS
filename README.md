@@ -1,4 +1,5 @@
 # Важные команды
+awk -F',' '{$1=""; OFS="\t"; print substr($0, 2)}' VanRaden.csv > VanRaden.tsv
 **Фильтрация VCF по хромосомам и позициям**
 ```
 tabix -p vcf {input}.vcf.gz
